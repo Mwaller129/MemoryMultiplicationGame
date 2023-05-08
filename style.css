@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+   
+}
+
+header {
+    font-size: 4vmin;
+    color: black;
+    letter-spacing: 1vmin;
+    
+}
+
+h1 {
+    color: black;
+    font-size: 3vmin;
+}
+
+#board  {
+    display: grid;
+    grid-template-columns: repeat(3,minmax( 200px, 1fr));
+    grid-template-rows: repeat(4, 10vmin);
+    gap: 1vmin;
+    margin-top: -4vmin;
+    color: black;
+    gap: 1rem;
+}
+
+#board > div {
+    border-radius: 100%;
+    border: 0.1vmin solid black;
+    background: grey
+    display: flex;
+    
+    
+  }
