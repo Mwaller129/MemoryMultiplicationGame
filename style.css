@@ -24,7 +24,7 @@ h1 {
     font-size: 3vmin;
 }
 
-#answers  {
+#board {
     display: grid;
     grid-template-columns: repeat(3,minmax( 200px, 1fr));
     grid-template-rows: repeat(4, 10vmin);
@@ -34,7 +34,7 @@ h1 {
     gap: 1rem;
 }
 
-#answers > div {
+#board > div {
     border-radius: 100%;
     border: 0.1vmin solid black;
     background: grey
