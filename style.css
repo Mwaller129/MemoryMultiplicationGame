@@ -24,21 +24,29 @@ h1 {
     font-size: 3vmin;
 }
 
-#board  {
+#answers  {
     display: grid;
     grid-template-columns: repeat(3,minmax( 200px, 1fr));
     grid-template-rows: repeat(4, 10vmin);
     gap: 1vmin;
-    margin-top: -4vmin;
+    margin-top: 25px 0px 75px 0px;
     color: black;
     gap: 1rem;
 }
 
-#board > div {
+#answers > div {
     border-radius: 100%;
     border: 0.1vmin solid black;
     background: grey
-    display: flex;
     
-    
-  }
+}
+
+ section {
+    justify-content: center;
+    text-align: center;
+}
+
+button {
+margin: 25px 0px 75px 0px;
+}
+
