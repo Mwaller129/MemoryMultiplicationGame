@@ -1,24 +1,27 @@
 /*----- constants -----*/
 const board = [
-    [1, 0, 0,],  // col 0
-    [0, 0, 0,],  // col 1
-    [0, 0, 0,],  // col 2
-    [0, 1, 0,]  // col 3
+    [1, 0, 0, 0, 0, 0],  // col 0
+    [0, 0, 0, 0, 0, 0],  // col 1
+    [0, 0, 0, 0, 0, 0],  // col 2
+    [0, 1, 0, 0, 0, 0]  // col 3
   ];
 
-  const questions = ['5 x 3', '5 x 7', '5 x 10', '5 x 4', '5 x 1', '5 x 5', '5 x 11', '5 x 2', '5 x 12', '5 x 9', ' 5 x 6', '5 x 8']
+  //const questions = ['5 x 3', '5 x 7', '5 x 10', '5 x 4', '5 x 1', '5 x 5', '5 x 11', '5 x 2', '5 x 12', '5 x 9', ' 5 x 6', '5 x 8']
 
 
 /*----- state variables -----*/ 
 let gameComplete; //game in play or user has completed game
-let evaluate; // isCorrect or is Incorrect
+let evaluate = 0 // isCorrect or is Incorrect
 let player = 1
+let fact = ''
+let answer = ''
+let choice = 0
 /*----- cached elements  -----*/
 const messageEl = document.querySelector('q1');
-const boardEls = document.getElementById(board);
+const boardEls = document.getElementById('board');
 
 /*----- event listeners -----*/
-document.getElementById('questions').addEventListener('click', handleClick);
+//document.getElementById('questions').addEventListener('click', handleClick);
 document.getElementById('board').addEventListener('click', makeChoices);
 
 /*----- functions -----*/
@@ -27,18 +30,50 @@ init = () => {
   render();
 
 };
+
+render = () => { //display full board
+    renderBoard();
+    renderDone();//congratulatory messgae when player finsihes
+    //renderControls();
+
+}
 //boardEls.forEach((, colIdx) => {
   //  const hideCell = (!board[colIdx].isCorrect || gameComplete === true)
     //   evaluate =`${c0r1}` === true
 //})
 
 function makeChoices(evt) {
-    const rowIdx = board.indexOf(evt.target);
+    let choice = evt.target
+    if (choice === 'board'){
+        return
+    }
+    choice.classList.add('choice')
     console.log(evt.target);
     render();
 }
 
+if (evaluate < 2) {
+    evaluate++
+    if (evaluate === 1) {
+        fact = choice.dataset.name
+        choice.classList.add('.choice')
+    } else {
+        answer = choice.dataset.name
+        choice.classList.add('.choice')
+    }
+    if (fact !== '' && answer !== '') {
+        if (fact === answer) {
+            set()
+        }
+    }
+}
 
+ const set = () => {
+     let pair = document.querySelectorAll('.choice')
+     pair.forEach((board) => {
+         board.classList.add('pair')
+     })
+ }
 function renderBoard() {
    board.forEach((colArr, colIdx) => {
         colArr.forEach((cellval, rowIdx) => {
@@ -55,20 +90,14 @@ function renderDone() {
     if (gameComplete === 'C') {
         messageEl.innerText = "Congratulations!" 
     } else {
-        messageEl.innerText = 'questions[1]';
+        
 
     }
 }
 
-function renderControls()    {
-    startAgainBtn.style.visibility = done ? 'visible' : 'hidden';
-}
+//function renderControls()    {
+    //startAgainBtn.style.visibility = done ? 'visible' : 'hidden';
+//}
 
 
 
-render = () => { //display full board
-    renderBoard();
-    renderDone();//congratulatory messgae when player finsihes
-    renderControls();
-
-}
