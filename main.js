@@ -6,6 +6,7 @@ const board = [
     [0, 1, 0, 0, 0, 0]  // col 3
   ];
 
+
   //const questions = ['5 x 3', '5 x 7', '5 x 10', '5 x 4', '5 x 1', '5 x 5', '5 x 11', '5 x 2', '5 x 12', '5 x 9', ' 5 x 6', '5 x 8']
 
 
@@ -17,8 +18,8 @@ let fact = ''
 let answer = ''
 let choice = 0
 /*----- cached elements  -----*/
-const messageEl = document.querySelector('q1');
-const boardEls = document.getElementById('board');
+//const messageEl = document.querySelector('q1');
+const boardEls = document.getElementById('div');
 
 /*----- event listeners -----*/
 //document.getElementById('questions').addEventListener('click', handleClick);
@@ -37,29 +38,36 @@ render = () => { //display full board
     //renderControls();
 
 }
-//boardEls.forEach((, colIdx) => {
-  //  const hideCell = (!board[colIdx].isCorrect || gameComplete === true)
-    //   evaluate =`${c0r1}` === true
-//})
 
+ board.forEach((item) => {
+     const tile = document.createElement('div')
+     tile.classList.add('tile')    
+     tile.classList.name = item.name
+     
+ })
+ 
 function makeChoices(evt) {
     let choice = evt.target
-    if (choice === 'board'){
+    if (choice === 'div'){
         return
     }
     choice.classList.add('choice')
     console.log(evt.target);
     render();
 }
+item = () => {
+choice.dataset.name = item.name
+    let item = docume.getElementById('div')
 
-if (evaluate < 2) {
-    evaluate++
-    if (evaluate === 1) {
-        fact = choice.dataset.name
-        choice.classList.add('.choice')
+let count = 0
+if (count < 2) {
+    count++
+    if (count === 1) {
+       fact = choice.dataset.name
+       choice.classList.add('choice')
     } else {
         answer = choice.dataset.name
-        choice.classList.add('.choice')
+        choice.classList.add('choice')
     }
     if (fact !== '' && answer !== '') {
         if (fact === answer) {
@@ -67,13 +75,14 @@ if (evaluate < 2) {
         }
     }
 }
+};
+const set = () => {
+    let choice = document.querySelectorAll('.choice')
+    choice.forEach((tile) => {
+        tile.classList.add('set')
+    })
+}
 
- const set = () => {
-     let pair = document.querySelectorAll('.choice')
-     pair.forEach((board) => {
-         board.classList.add('pair')
-     })
- }
 function renderBoard() {
    board.forEach((colArr, colIdx) => {
         colArr.forEach((cellval, rowIdx) => {

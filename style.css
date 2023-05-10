@@ -33,6 +33,7 @@ h1 {
     margin: 50px 0px 0px 0px;
     color: black;
     gap: 1rem;
+    background-image: url();
 }
 
 #board > div {
