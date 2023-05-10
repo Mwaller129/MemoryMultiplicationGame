@@ -50,6 +50,9 @@ if (count < 2) {
      if (fact !== '' && answer !== '') {
         if (fact === answer) {
             set();
+            resetGame();
+        } else {
+            resetGame();
         }
     }
 }
@@ -152,4 +155,12 @@ function renderControls()    {
 }
 
 
-
+const resetGame = () => {
+    fact = ''
+    answer = ''
+    count = 0
+    let evaluate = document.querySelectorAll('.evaluate')
+    evaluate.forEach((tile) => {
+        tile.classList.remove('evaluate')
+    })
+}
