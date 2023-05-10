@@ -38,8 +38,8 @@ h1 {
 
 #board > div {
     border-radius: 100%;
-    border: 0.1vmin solid black;
-    background: grey
+    
+    
     
 }
 
@@ -56,8 +56,6 @@ margin: 25px 0px 75px 0px;
     color: blue;
 }
 
-.set {
-    background-image: none;
-    color: green;
-
+#board > div > .set {
+    visibility: hidden;
 }

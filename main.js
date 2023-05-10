@@ -25,6 +25,7 @@ let count = 0
     let evaluate = document.querySelectorAll('.evaluate')
     evaluate.forEach((tile) => {
     tile.classList.add('set')
+   
 })
 }
 /*----- event listeners -----*/
