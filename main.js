@@ -19,72 +19,108 @@ let answer = ''
 let choice = 0
 let count = 0
 /*----- cached elements  -----*/
-
+const playAgainBtn = document.querySelector('button');
 //const messageEl = document.querySelector('q1');
 //const boardEls = document.getElementById('div');
-  const set = () => {
+const set = () => {
     let evaluate = document.querySelectorAll('.evaluate')
     evaluate.forEach((tile) => {
     tile.classList.add('set')
-   
+    
 })
 }
+ const resetGame = () => {
+     fact = ''
+     answer = ''
+     count = 0
+
+     let evaluate = document.querySelectorAll('.evaluate')
+     evaluate.forEach((tile) => {
+         tile.classList.remove('evaluate')
+     })
+    }
+
+
 /*----- event listeners -----*/
+let tiles = document.querySelectorAll('#board > div')
+tiles.forEach((tile) => {
+    tile.addEventListener('click', function(evt) {
+        tile.classList.add('evaluate')
+        console.log(tile)
 
-//document.getElementById('questions').addEventListener('click', handleClick);
-document.getElementById('board').addEventListener('click', function(evt) {
-    let choice = evt.target
-    // if (choice === 'div') {
-    //     return
-    // }
-    choice.classList.add('evaluate')
-    console.log(evt.target);
-    //render();
+    })
+})
 
-//  let playerChoice = null
-//      playerChoice = evaluate;
- if (choice === evaluate && choice.getAttribute("id") === choice.getAttribute("id")) {
-     return;  
- }
 
-if (count < 2) {
-    count++
-    if (count === 1) {
-       fact = choice.dataset.name
-       choice.classList.add('evaluate') 
-    } else {
-        answer = choice.dataset.name
-        choice.classList.add('evaluate')
-    }
-     if (fact !== '' && answer !== '') {
-        if (fact === answer) {
-            set();
-            resetGame();
-         } else {
-             resetGame();
-         }
-    }
-    
-}
-})  
-//}
+
+//     
+//     console.log(choice);
+//     //render();
+
+       
+// } else {
+//     resetGame();
+//  }
+// 
+//     //  if (fact === fact || answer === answer)  
+//     //  return; 
+     
+//     
+//})
 
 
 /*----- functions -----*/
 init = () => {
-  gameComplete = null;
+//gameComplete = null;
   render();
 
 };
-const playAgainBtn = document.querySelector('button');
-playAgainBtn.addEventListener('click', init);
 
-board.forEach((item) => {
-    const tile = document.createElement('div')
-    tile.classList.add('tile')    
-    tile.classList.name = item.name
+function ifAnswer() {
+    let count = 0
+    fact = ''
+    answer= ''
+
+    if (count < 2) {
+         count++
+      if (count === 1) {
+        fact = tiles.dataset.name
+        tiles.classList.add('evaluate') 
+     } else {
+       answer = tiles.dataset.name
+        tiles.classList.add('evaluate')
+    }
+}
+}
+
+function ifCorrect () {
+    let count = 0
+    fact = ''
+    answer= ''
+    if (fact !== '' && answer !== '') {
+             if (fact === answer) {
+                 set();  
+           
+    }
+}
+}
+
+function ifIncorrect () {
+    let count = 0
+    fact = ''
+    answer= '' 
+
+    if (fact !== answer || fact === fact || answer === answer)  
+       return; 
+}
+
+
+//  board.forEach((item) => {
+//      const tile = document.getElementById('div')
+//      tile.classList.add('tile')    
+//      tile.classList.name = item.name
     
-})
+//  })
 // function makeChoices(evt) {
 //     let choice = evt.target
 //     if (choice === 'div'){
@@ -95,7 +131,7 @@ board.forEach((item) => {
     //render();
 //}
 item = () => {
-choice.dataset.name = item.name
+tile.dataset.name = item.name
     let item = document.getElementById('div')
 }
 //  const set = () => {
@@ -134,7 +170,7 @@ choice.dataset.name = item.name
 render = () => { //display full board
     renderBoard();
     renderDone();//congratulatory messgae when player finsihes
-    renderControls();
+    //renderControls();
 
 };
 
@@ -164,17 +200,19 @@ render = () => { //display full board
  }
 
 function renderControls()    {
-    
-    playAgainBtn.style.visibility = done ? 'visible' : 'hidden';
+    //playAgainBtn.addEventListener('click', init);
+    //playAgainBtn.style.visibility = done ? 'visible' : 'hidden';
 }
 
 
-const resetGame = () => {
-    fact = ''
-    answer = ''
-    count = 0
-    let evaluate = document.querySelectorAll('.evaluate')
-    evaluate.forEach((tile) => {
-        tile.classList.remove('evaluate')
-    })
-}
+//   const resetGame = () => {
+//       fact = ''
+//       answer = ''
+//       count = 0
+
+//       let evaluate = document.querySelectorAll('.evaluate')
+//       evaluate.forEach((tile) => {
+//           tile.classList.remove('evaluate')
+//       })
+//      }
+//})
