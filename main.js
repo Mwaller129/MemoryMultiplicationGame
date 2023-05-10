@@ -19,6 +19,7 @@ let answer = ''
 let choice = 0
 let count = 0
 /*----- cached elements  -----*/
+
 //const messageEl = document.querySelector('q1');
 //const boardEls = document.getElementById('div');
   const set = () => {
@@ -29,6 +30,7 @@ let count = 0
 })
 }
 /*----- event listeners -----*/
+
 //document.getElementById('questions').addEventListener('click', handleClick);
 document.getElementById('board').addEventListener('click', function(evt) {
     let choice = evt.target
@@ -38,11 +40,18 @@ document.getElementById('board').addEventListener('click', function(evt) {
     choice.classList.add('evaluate')
     console.log(evt.target);
     //render();
+
+//  let playerChoice = null
+//      playerChoice = evaluate;
+ if (choice === evaluate && choice.getAttribute("id") === choice.getAttribute("id")) {
+     return;  
+ }
+
 if (count < 2) {
     count++
     if (count === 1) {
        fact = choice.dataset.name
-       choice.classList.add('evaluate')
+       choice.classList.add('evaluate') 
     } else {
         answer = choice.dataset.name
         choice.classList.add('evaluate')
@@ -51,10 +60,11 @@ if (count < 2) {
         if (fact === answer) {
             set();
             resetGame();
-        } else {
-            resetGame();
-        }
+         } else {
+             resetGame();
+         }
     }
+    
 }
 })  
 //}
@@ -66,6 +76,9 @@ init = () => {
   render();
 
 };
+const playAgainBtn = document.querySelector('button');
+playAgainBtn.addEventListener('click', init);
+
 board.forEach((item) => {
     const tile = document.createElement('div')
     tile.classList.add('tile')    
@@ -121,7 +134,7 @@ choice.dataset.name = item.name
 render = () => { //display full board
     renderBoard();
     renderDone();//congratulatory messgae when player finsihes
-    //renderControls();
+    renderControls();
 
 };
 
@@ -151,7 +164,8 @@ render = () => { //display full board
  }
 
 function renderControls()    {
-    startAgainBtn.style.visibility = done ? 'visible' : 'hidden';
+    
+    playAgainBtn.style.visibility = done ? 'visible' : 'hidden';
 }
 
 
