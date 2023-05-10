@@ -52,10 +52,12 @@ button {
 margin: 25px 0px 75px 0px;
 }
 
-.choice {
+.evaluate {
     color: blue;
 }
 
 .set {
+    background-image: none;
     color: green;
+
 }
