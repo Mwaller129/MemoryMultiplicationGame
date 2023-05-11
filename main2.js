@@ -21,8 +21,13 @@ const winningCombos = [
     [20 ,23]
 ];
 /*----- state variables -----*/
-
-
+let gameComplete; //game in play or user has completed game
+let evaluate = 0 // isCorrect or is Incorrect
+let player = 1
+let fact = ''
+let answer = ''
+let choice = 0
+let count = 0
 /*----- cached elements  -----*/
 const playAgainBtn = document.querySelector('button');
 
@@ -31,18 +36,38 @@ let tiles = document.querySelectorAll('#board > div')
 tiles.forEach((tile) => {
     tile.addEventListener('click', function(evt) {
         let tile = evt.target
-        tile.classList.add('evaluate')
+       tile.classList.add('evaluate')
         console.log(tile)
-    ifAnswer(tile) 
+//     ifAnswer(tile) 
     })
-})
+ })
 playAgainBtn.addEventListener('click', init);
 /*----- functions -----*/
 function init () {
-    board = [
-        [0, 0, 0, 0, 0, 0, 0, 0],  // col 0
-        [0, 0, 0, 0, 0, 0, 0, 0],  // col 1
-        [0, 0, 0, 0, 0, 0, 0, 0]  // col 2
-      ];
+    board = new Array (24).fill (null);
     render();
 }
+
+function makeChoices(evt) {
+    let choice = parseInt(evt.target.id.replace('tile', ''));
+    if (
+        isNaN(choice) ||
+        board[choice] ||
+        gameComplete
+    ) return;
+    render();
+}
+
+function checkMatch(tile) {
+    for (let i = 0; i < winningCombos.length; i++ ) {
+        if (Math.abs(board[winningCombos[i][0]]+ board[winningCombos[i][0]]) === 2) return board[winningCombos[i][0]];
+    }
+         tile.classList.add('isCorrect')
+}
+
+function render () {
+    renderBoard();
+    renderMessage();
+    playAgainBtn.disabled = !gameComplete;
+}
+

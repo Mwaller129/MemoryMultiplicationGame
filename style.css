@@ -56,6 +56,6 @@ margin: 25px 0px 75px 0px;
     color: blue;
 }
 
-#board > div > .correct {
+.isCorrect {
     visibility: hidden;
 }
