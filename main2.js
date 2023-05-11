@@ -108,13 +108,16 @@ grid.forEach((selection) => {
                         message.innerText = 'Congratulations, You just completed the 5s Times Tables!'
                     } 
          } else {
-            console.log("this is not a match")
+            setTimeout(() => {
+            //console.log("this is not a match")
             selection1.classList.remove('evaluate')
             selection2.classList.remove('evaluate')
-            selection1.classList.add('incorrect')
-            selection2.classList.add('incorrect')
-            //set timer for everything inside of else
+            selection1.classList.add('incorrect');
+            selection2.classList.add('incorrect');
+          
+              //set timer for everything inside of else
             return
+        }, 1500);
          }
          } 
         
