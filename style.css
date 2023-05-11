@@ -52,10 +52,14 @@ button {
 margin: 25px 0px 75px 0px;
 }
 
-.answer {
+.evaluate {
     color: blue;
 }
 
 .correct {
     visibility: hidden;
+}
+
+.incorrect {
+    color: red;
 }
