@@ -20,54 +20,77 @@ const winningCombos = [
     [15, 19],
     [20 ,23]
 ];
+
 /*----- state variables -----*/
 let gameComplete; //game in play or user has completed game
-let evaluate = 0 // isCorrect or is Incorrect
-let player = 1
-let fact = ''
-let answer = ''
 let choice = 0
-let count = 0
+
 /*----- cached elements  -----*/
 const playAgainBtn = document.querySelector('button');
-
+const message = document.querySelector('h1');
 /*----- event listeners -----*/
 let tiles = document.querySelectorAll('#board > div')
 tiles.forEach((tile) => {
     tile.addEventListener('click', function(evt) {
         let tile = evt.target
-       tile.classList.add('evaluate')
-        console.log(tile)
+       tile.classList.add('answer')
+        //console.log(tile)
 //     ifAnswer(tile) 
     })
  })
 playAgainBtn.addEventListener('click', init);
 /*----- functions -----*/
+init ();
+
+
 function init () {
-    board = new Array (24).fill (null);
+    gameGrid = new Array (24).fill (null);
     render();
 }
 
-function makeChoices(evt) {
-    let choice = parseInt(evt.target.id.replace('tile', ''));
-    if (
-        isNaN(choice) ||
-        board[choice] ||
-        gameComplete
-    ) return;
-    render();
-}
-
-function checkMatch(tile) {
-    for (let i = 0; i < winningCombos.length; i++ ) {
-        if (Math.abs(board[winningCombos[i][0]]+ board[winningCombos[i][0]]) === 2) return board[winningCombos[i][0]];
+ function makeChoices(evt) {
+     let choice = parseInt(evt.target.id.replace('tile', ''));
+     if (
+         isNaN(choice) ||
+         board[choice] ||
+         gameComplete
+     ) return;
+     render();
+ }
+let grid = document.querySelectorAll('board')
+grid.forEach((selection) => { 
+ selection.addEventListener('click', function(evt) {
+         let choice = evt.target
+    // for (let i = 0; i < winningCombos.length; i++ ) {
+    //     if (Math.abs(gameGrid[winningCombos[i][0]]+ gameGrid[winningCombos[i][1]]) === 2) 
+    //     return gameGrid[winningCombos[i][0]]; 
+    
+    if (choice === winningCombos) {
+        choice.classList.add("correct")
+        console.log('choice')
     }
-         tile.classList.add('isCorrect')
-}
+})
+    
+    
+    
+    //      if (board.includes(null)); return null;
+    //       return;
+     })
 
 function render () {
-    renderBoard();
     renderMessage();
-    playAgainBtn.disabled = !gameComplete;
+    renderControls();
+    
 }
 
+
+function renderMessage ()  {
+    if (gameComplete) {
+        message.innerHTML = `Congratulations, You just completed you're 5's Times Tables!`
+    }
+}
+
+function renderControls ()  {
+    playAgainBtn.disabled = !gameComplete;
+    playAgainBtn.style.visibility = gameComplete ? 'visible' : 'hidden';
+}

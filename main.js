@@ -1,55 +1,55 @@
-/*----- constants -----*/
-const board = [
-    [1, 0, 0, 0, 0, 0],  // col 0
-    [0, 0, 0, 0, 0, 0],  // col 1
-    [0, 0, 0, 0, 0, 0],  // col 2
-    [0, 1, 0, 0, 0, 0]  // col 3
-  ];
+// /*----- constants -----*/
+// const board = [
+//     [1, 0, 0, 0, 0, 0],  // col 0
+//     [0, 0, 0, 0, 0, 0],  // col 1
+//     [0, 0, 0, 0, 0, 0],  // col 2
+//     [0, 1, 0, 0, 0, 0]  // col 3
+//   ];
 
 
-  //const questions = ['5 x 3', '5 x 7', '5 x 10', '5 x 4', '5 x 1', '5 x 5', '5 x 11', '5 x 2', '5 x 12', '5 x 9', ' 5 x 6', '5 x 8']
+//   //const questions = ['5 x 3', '5 x 7', '5 x 10', '5 x 4', '5 x 1', '5 x 5', '5 x 11', '5 x 2', '5 x 12', '5 x 9', ' 5 x 6', '5 x 8']
 
 
-/*----- state variables -----*/ 
-let gameComplete; //game in play or user has completed game
-let evaluate = 0 // isCorrect or is Incorrect
-let player = 1
-let fact = ''
-let answer = ''
-let choice = 0
-let count = 0
-/*----- cached elements  -----*/
-const playAgainBtn = document.querySelector('button');
-//const messageEl = document.querySelector('q1');
-//const boardEls = document.getElementById('div');
-const correct = () => {
-    let evaluate = document.querySelectorAll('.evaluate')
-    evaluate.forEach((selection) => {
-    selection.classList.add('correct')
+// /*----- state variables -----*/ 
+// let gameComplete; //game in play or user has completed game
+// let evaluate = 0 // isCorrect or is Incorrect
+// let player = 1
+// let fact = ''
+// let answer = ''
+// let choice = 0
+// let count = 0
+// /*----- cached elements  -----*/
+// const playAgainBtn = document.querySelector('button');
+// //const messageEl = document.querySelector('q1');
+// //const boardEls = document.getElementById('div');
+// const correct = () => {
+//     let evaluate = document.querySelectorAll('.evaluate')
+//     evaluate.forEach((selection) => {
+//     selection.classList.add('correct')
     
-})
-}
- const resetGame = () => {
-     fact = ''
-     answer = ''
-     count = 0
-     let evaluate = document.querySelectorAll('.evaluate')
-     evaluate.forEach((tile) => {
-         tile.classList.remove('evaluate')
-     })
-    }
+// })
+// }
+//  const resetGame = () => {
+//      fact = ''
+//      answer = ''
+//      count = 0
+//      let evaluate = document.querySelectorAll('.evaluate')
+//      evaluate.forEach((tile) => {
+//          tile.classList.remove('evaluate')
+//      })
+//     }
 
 
-/*----- event listeners -----*/
-let tiles = document.querySelectorAll('#board > div')
-tiles.forEach((tile) => {
-    tile.addEventListener('click', function(evt) {
-        let tile = evt.target
-        tile.classList.add('evaluate')
-        console.log(tile)
-    ifAnswer(tile) 
-    })
-})
+// /*----- event listeners -----*/
+// let tiles = document.querySelectorAll('#board > div')
+// tiles.forEach((tile) => {
+//     tile.addEventListener('click', function(evt) {
+//         let tile = evt.target
+//         tile.classList.add('evaluate')
+//         console.log(tile)
+//     ifAnswer(tile) 
+//     })
+// })
 
 
 
@@ -69,38 +69,38 @@ tiles.forEach((tile) => {
 //})
 
 
-/*----- functions -----*/
-init = () => {
-//gameComplete = null;
-  render();
+// /*----- functions -----*/
+// init = () => {
+// //gameComplete = null;
+//   render();
 
-};
+// };
 
-function ifAnswer(tile) {
-    console.log(count)
-    fact = ''
-    answer = ''
-    count++
-    if (count < 2) {
+// function ifAnswer(tile) {
+//     console.log(count)
+//     fact = ''
+//     answer = ''
+//     count++
+//     if (count < 2) {
          
-      if (count === 1) {
-        fact = tile.dataset.name
-        tile.classList.add('evaluate') 
-     } else {
-       answer = tile.dataset.name
-        tile.classList.add('evaluate')
-    }
-    if (fact !== '' && answer !== '') {
-        if (fact === answer) {
-                 correct();  
+//       if (count === 1) {
+//         fact = tile.dataset.name
+//         tile.classList.add('evaluate') 
+//      } else {
+//        answer = tile.dataset.name
+//         tile.classList.add('evaluate')
+//     }
+//     if (fact !== '' && answer !== '') {
+//         if (fact === answer) {
+//                  correct();  
            
-    }
-}
-}
-}
+//     }
+// }
+// }
+// }
 
 
-// function ifCorrect () {
+// // function ifCorrect () {
 //     let fact = tiles.dataset.name
 //     let answer = tiles.dataset.name
 //if (fact !== '' && answer !== '') {
@@ -109,14 +109,14 @@ function ifAnswer(tile) {
        
 //}
 
-function ifIncorrect () {
-    let count = 0
-    fact = ''
-    answer= '' 
+// function ifIncorrect () {
+//     let count = 0
+//     fact = ''
+//     answer= '' 
 
-    if (fact !== answer || fact === fact || answer === answer)  
-       return; 
-}
+//     if (fact !== answer || fact === fact || answer === answer)  
+//        return; 
+// }
 
 
  
@@ -132,10 +132,10 @@ function ifIncorrect () {
 //     console.log(evt.target);
     //render();
 //}
-item = () => {
-tiles.dataset.name = item.name
-    let item = document.getElementById('#board > div')
-}
+// item = () => {
+// tiles.dataset.name = item.name
+//     let item = document.getElementById('#board > div')
+// }
 //  board.forEach((item) => {
 //       const tile = document.getElementById('div')
 //        tile.classList.add('tile')    
@@ -174,27 +174,27 @@ tiles.dataset.name = item.name
 // }
 // })
 
-render = () => { //display full board
-    renderBoard();
-    //renderDone();//congratulatory messgae when player finsihes
-    //renderControls();
+// render = () => { //display full board
+//     renderBoard();
+//     //renderDone();//congratulatory messgae when player finsihes
+//     //renderControls();
 
-};
+// };
 
 
  
 
 
- function renderBoard() {
-    board.forEach((colArr, colIdx) => {
-         colArr.forEach((cellval, rowIdx) => {
-             const cellId = `c${colIdx}r${rowIdx}`;
-            const cellEl = document.getElementById(cellId);
-        });
+//  function renderBoard() {
+//     board.forEach((colArr, colIdx) => {
+//          colArr.forEach((cellval, rowIdx) => {
+//              const cellId = `c${colIdx}r${rowIdx}`;
+//             const cellEl = document.getElementById(cellId);
+//         });
        
-        });
+//         });
         
-     }
+//      }
 
 
 //  function renderDone() {
