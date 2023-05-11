@@ -22,10 +22,10 @@ let count = 0
 const playAgainBtn = document.querySelector('button');
 //const messageEl = document.querySelector('q1');
 //const boardEls = document.getElementById('div');
-const set = () => {
+const correct = () => {
     let evaluate = document.querySelectorAll('.evaluate')
-    evaluate.forEach((tile) => {
-    tile.classList.add('set')
+    evaluate.forEach((selection) => {
+    selection.classList.add('correct')
     
 })
 }
@@ -33,7 +33,6 @@ const set = () => {
      fact = ''
      answer = ''
      count = 0
-
      let evaluate = document.querySelectorAll('.evaluate')
      evaluate.forEach((tile) => {
          tile.classList.remove('evaluate')
@@ -45,9 +44,10 @@ const set = () => {
 let tiles = document.querySelectorAll('#board > div')
 tiles.forEach((tile) => {
     tile.addEventListener('click', function(evt) {
+        let tile = evt.target
         tile.classList.add('evaluate')
         console.log(tile)
-
+    ifAnswer(tile) 
     })
 })
 
@@ -76,34 +76,38 @@ init = () => {
 
 };
 
-function ifAnswer() {
-    let count = 0
+function ifAnswer(tile) {
+    console.log(count)
     fact = ''
-    answer= ''
-
+    answer = ''
+    count++
     if (count < 2) {
-         count++
+         
       if (count === 1) {
-        fact = tiles.dataset.name
-        tiles.classList.add('evaluate') 
+        fact = tile.dataset.name
+        tile.classList.add('evaluate') 
      } else {
-       answer = tiles.dataset.name
-        tiles.classList.add('evaluate')
+       answer = tile.dataset.name
+        tile.classList.add('evaluate')
     }
-}
-}
-
-function ifCorrect () {
-    let count = 0
-    fact = ''
-    answer= ''
     if (fact !== '' && answer !== '') {
-             if (fact === answer) {
-                 set();  
+        if (fact === answer) {
+                 correct();  
            
     }
 }
 }
+}
+
+
+// function ifCorrect () {
+//     let fact = tiles.dataset.name
+//     let answer = tiles.dataset.name
+//if (fact !== '' && answer !== '') {
+   // if (fact === answer) {
+        //     correct();  
+       
+//}
 
 function ifIncorrect () {
     let count = 0
@@ -115,12 +119,10 @@ function ifIncorrect () {
 }
 
 
-//  board.forEach((item) => {
-//      const tile = document.getElementById('div')
-//      tile.classList.add('tile')    
-//      tile.classList.name = item.name
-    
-//  })
+ 
+
+  
+ 
 // function makeChoices(evt) {
 //     let choice = evt.target
 //     if (choice === 'div'){
@@ -131,9 +133,14 @@ function ifIncorrect () {
     //render();
 //}
 item = () => {
-tile.dataset.name = item.name
-    let item = document.getElementById('div')
+tiles.dataset.name = item.name
+    let item = document.getElementById('#board > div')
 }
+//  board.forEach((item) => {
+//       const tile = document.getElementById('div')
+//        tile.classList.add('tile')    
+//        tile.classList.name = item.name
+//    }) 
 //  const set = () => {
 //      let evaluate = document.querySelectorAll('.evaluate')
 //      evaluate.forEach((tile) => {
@@ -169,7 +176,7 @@ tile.dataset.name = item.name
 
 render = () => { //display full board
     renderBoard();
-    renderDone();//congratulatory messgae when player finsihes
+    //renderDone();//congratulatory messgae when player finsihes
     //renderControls();
 
 };
@@ -190,19 +197,19 @@ render = () => { //display full board
      }
 
 
- function renderDone() {
-     if (gameComplete === 'C') {
-         messageEl.innerText = "Congratulations!" 
-     } else {
+//  function renderDone() {
+//      if (gameComplete === 'C') {
+//          messageEl.innerText = "Congratulations!" 
+//      } else {
         
 
-     }
- }
+//      }
+//  }
 
-function renderControls()    {
-    //playAgainBtn.addEventListener('click', init);
-    //playAgainBtn.style.visibility = done ? 'visible' : 'hidden';
-}
+// function renderControls()    {
+//     //playAgainBtn.addEventListener('click', init);
+//     //playAgainBtn.style.visibility = done ? 'visible' : 'hidden';
+// }
 
 
 //   const resetGame = () => {
