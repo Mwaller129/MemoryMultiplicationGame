@@ -11,7 +11,7 @@ body {
     justify-content: center;
     display: flex;
     flex-direction: column;
-    height: 150vh;
+    height: 180vh;
     margin: 10px, 25px, 10px, 25px;
     background-image: url(imgs/c.png);
     background-size: cover;
@@ -49,7 +49,7 @@ h1 {
 #board > div {
     
     background-image: url()
-    background-size: auto;
+    
     
 }
 
@@ -72,4 +72,9 @@ margin: 25px 0px 75px 0px;
 
 .incorrect {
     color: red;
+}
+
+h3 {
+    color: black;
+    font-size: 5vmin;
 }

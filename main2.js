@@ -6,20 +6,6 @@ const board = [
     
   ];
 
-// const winningCombos = [
-//     [0, 17],
-//     [1, 10],
-//     [2, 9],
-//     [3, 6],
-//     [4, 13],
-//     [5, 14],
-//     [7, 22],
-//     [8, 16],
-//     [11, 18],
-//     [12, 21],
-//     [15, 19],
-//     [20 ,23]
-// ];
 
 let winningCombos = {
     id: 'c0r0',
@@ -57,23 +43,15 @@ let choice = 0
 const playAgainBtn = document.querySelector('button');
 const message = document.querySelector('h1');
 /*----- functions -----*/
-
+const start = () => {
+    window.location.reload()
+}
 
 
 const init = () => {
     gameGrid = new Array (24).fill (null);
     render();
 }
-
-//  function makeChoices(evt) {
-//      let choice = parseInt(evt.target.id.replace('tile', ''));
-//      if (
-//          isNaN(choice) ||
-//          board[choice] ||
-//          gameComplete
-//      ) return;
-//      render();
-//  }
 
 
  let count = 1
@@ -93,14 +71,11 @@ grid.forEach((selection) => {
             selection2 = evt.target
             
             selection2.classList.add('evaluate')
-            // let option1 = selection1.classList
-            // console.log(option1 )
-            // let option2 = selection2.classList.slice()
-
+            
             
             count --
              if (selection1.classList[0] === selection2.classList[0]) {
-                    console.log("this is a Match")
+                    
                     selection1.classList.add('correct')
                     selection2.classList.add('correct')
                     matches++
@@ -109,35 +84,24 @@ grid.forEach((selection) => {
                     } 
          } else {
             setTimeout(() => {
-            //console.log("this is not a match")
             selection1.classList.remove('evaluate')
             selection2.classList.remove('evaluate')
-            selection1.classList.add('incorrect');
-            selection2.classList.add('incorrect');
-          
-              //set timer for everything inside of else
+            selection1.classList.add('incorrect')
+            selection2.classList.add('incorrect')
             return
-        }, 1500);
+        }, 1000);
          }
          } 
         
-    // for (let i = 0; i < winningCombos.length; i++ ) {
-    //     if (Math.abs(gameGrid[winningCombos[i][0]]+ gameGrid[winningCombos[i][1]]) === 2) 
-    //     return gameGrid[winningCombos[i][0]]; 
     
     if (choice === winningCombos) {
         choice.classList.add("correct")
-        console.log('choice')
+      
     }
 })
     
-    
-    
-    //      if (board.includes(null)); return null;
-    //       return;
 })
 const renderControls = () =>  {
-    //playAgainBtn.disabled = !gameComplete;
     playAgainBtn.style.visibility = 'visible' 
 }
 
@@ -149,4 +113,4 @@ const render = () => {
 init ();
     /*----- event listeners -----*/
     
-    playAgainBtn.addEventListener('click', init());
+    playAgainBtn.addEventListener('click', start);
