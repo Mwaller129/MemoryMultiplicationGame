@@ -105,7 +105,7 @@ grid.forEach((selection) => {
                     selection2.classList.add('correct')
                     matches++
                     if (matches === 12) {
-                        message.innerText = 'Congratulations, You just completed the 5s Times Tables!'
+                        message.innerText = 'Congratulations, You just completed the 5 Times Tables!'
                     } 
          } else {
             setTimeout(() => {
@@ -137,8 +137,8 @@ grid.forEach((selection) => {
     //       return;
 })
 const renderControls = () =>  {
-    playAgainBtn.disabled = !gameComplete;
-    playAgainBtn.style.visibility = gameComplete ? 'visible' : 'hidden';
+    //playAgainBtn.disabled = !gameComplete;
+    playAgainBtn.style.visibility = 'visible' 
 }
 
 const render = () => {
@@ -149,4 +149,4 @@ const render = () => {
 init ();
     /*----- event listeners -----*/
     
-    playAgainBtn.addEventListener('click', init);
+    playAgainBtn.addEventListener('click', init());

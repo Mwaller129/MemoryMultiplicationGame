@@ -11,36 +11,38 @@ body {
     justify-content: center;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    margin: 0px, 0px, 0px, 0px;
-    background-image: url(imgs/1.png);
+    height: 150vh;
+    margin: 10px, 25px, 10px, 25px;
+    background-image: url(imgs/c.png);
     background-size: cover;
-    font-size: x-large;
+    background-repeat: no-repeat;
+    font-size: 50px;
+    
 
    
 }
 
 header {
-    font-size: 4vmin;
-    color:white;
+    font-size: 10vmin;
+    color: black;
     letter-spacing: 1vmin;
-    margin-top: 200px
+    margin-top: 300px
     
 }
 
 h1 {
-    color: black;
-    font-size: 3vmin;
+    color: rgb(51, 49, 49);
+    font-size: 5vmin;
 }
 
 #board {
     display: grid;
-    grid-template-columns: repeat(3,minmax( 200px, 1fr));
-    grid-template-rows: repeat(8, 10vmin);
+    grid-template-columns: repeat(4,minmax( 200px, 1fr));
+    grid-template-rows: repeat(6, 10vmin);
     gap: 1vmin;
     margin: 50px 0px 0px 0px;
-    color: white;
-    gap: 1rem;
+    color:black;
+    gap: 4rem;
     
 }   
 
@@ -61,7 +63,7 @@ margin: 25px 0px 75px 0px;
 }
 
 .evaluate {
-    color: blue;
+    color: rgb(14, 167, 167);
 }
 
 .correct {
