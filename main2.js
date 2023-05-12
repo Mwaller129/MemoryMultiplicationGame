@@ -5,7 +5,7 @@ const board = [
     [0, 0, 0, 0, 0, 0, 0, 0]  // col 2
     
   ];
-
+//board with all possible answers and equations
 
 let winningCombos = {
     id: 'c0r0',
@@ -34,11 +34,10 @@ let winningCombos = {
     value: 'c2r8',
     
 }
-
+//all possible winning combinations that are linked by div ID
 /*----- state variables -----*/
-let gameComplete; //game in play or user has completed game
 let choice = 0
-
+//determines which div in board is selected
 /*----- cached elements  -----*/
 const playAgainBtn = document.querySelector('button');
 const message = document.querySelector('h1');
@@ -46,13 +45,13 @@ const message = document.querySelector('h1');
 const start = () => {
     window.location.reload()
 }
-
+//for play again button (function is below all other code)
 
 const init = () => {
     gameGrid = new Array (24).fill (null);
     render();
 }
-
+//displays game board with all possible selections showing
 
  let count = 1
  let selection1
@@ -65,23 +64,18 @@ grid.forEach((selection) => {
             selection1 = evt.target
             selection1.classList.add('evaluate')  
             count ++
-        
+        //determines when first selection is made and adds class name of evaluate to make selection appear as aquamarine. same is repeated for selection 2.
         } else if (count === 2) {
-            
             selection2 = evt.target
-            
             selection2.classList.add('evaluate')
-            
-            
             count --
-             if (selection1.classList[0] === selection2.classList[0]) {
-                    
+             if (selection1.classList[0] === selection2.classList[0]) { 
                     selection1.classList.add('correct')
                     selection2.classList.add('correct')
                     matches++
                     if (matches === 12) {
                         message.innerText = 'Congratulations, You just completed the 5 Times Tables!'
-                    } 
+                    }
          } else {
             setTimeout(() => {
             selection1.classList.remove('evaluate')
@@ -92,19 +86,19 @@ grid.forEach((selection) => {
         }, 1000);
          }
          } 
-        
+        //if user makes incorrect match, class name of incorrect is added to both selections and they turn red. timer is set to remove the selections after 1 second.
     
     if (choice === winningCombos) {
-        choice.classList.add("correct")
-      
+        choice.classList.add("correct")  
     }
 })
+// if winning combination is selected that equation and answer disappear.
     
 })
 const renderControls = () =>  {
     playAgainBtn.style.visibility = 'visible' 
 }
-
+//makes play agin button visible
 const render = () => {
     renderControls();   
 }
@@ -114,3 +108,4 @@ init ();
     /*----- event listeners -----*/
     
     playAgainBtn.addEventListener('click', start);
+// resets game

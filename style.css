@@ -11,8 +11,8 @@ body {
     justify-content: center;
     display: flex;
     flex-direction: column;
-    height: 180vh;
-    margin: 10px, 25px, 10px, 25px;
+    height: 170vh;
+    margin: 20px, 25px, 20px, 25px;
     background-image: url(imgs/c.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@ body {
 }
 
 header {
-    font-size: 10vmin;
+    font-size: 8vmin;
     color: black;
     letter-spacing: 1vmin;
     margin-top: 300px
@@ -31,7 +31,7 @@ header {
 }
 
 h1 {
-    color: rgb(51, 49, 49);
+    color: black;
     font-size: 5vmin;
 }
 
@@ -40,18 +40,11 @@ h1 {
     grid-template-columns: repeat(4,minmax( 200px, 1fr));
     grid-template-rows: repeat(6, 10vmin);
     gap: 1vmin;
-    margin: 50px 0px 0px 0px;
+    margin: 60px 0px 60px 0px;
     color:black;
-    gap: 4rem;
+    gap: 3rem;
     
-}   
-
-#board > div {
-    
-    background-image: url()
-    
-    
-}
+}      
 
  section {
     justify-content: center;
@@ -77,4 +70,8 @@ margin: 25px 0px 75px 0px;
 h3 {
     color: black;
     font-size: 5vmin;
+}
+#body > welcome {
+    color: black;
+    font-size: 5vmin; 
 }

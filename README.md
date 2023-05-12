@@ -20,13 +20,14 @@ After answering all problems correctly, a congratulatory message will display an
 ##### **_Technologies_**
 - Javascript
 - Hmtl
-    - Sub-item
 1. CSS
 2. Planning:
-    - Trello
+    - [Trello](https://trello.com/b/J06COQ66/miner-multiplication-biome)
+    - [Wireframe](https://bit.ly/multiplication-game-wireframe)
 ***
 ### **_Screenshots_**
-[Wireframe](https://bit.ly/multiplication-game-wireframe)
+![Screenshot of Game Board](/./imgs/Screen%20Shot%202023-05-12%20at%2011.07.17%20AM.png)
+![Screenshot of Welcome Page](./imgs/Screen%20Shot%202023-05-12%20at%2011.06.12%20AM%20(2).png)
 ***
 ### **_Task Lists_**
 - [ ] Complete MVPs
@@ -35,3 +36,7 @@ After answering all problems correctly, a congratulatory message will display an
 - [ ] Test Usability
 ***
 ### **_Credits_**
+- [Font]: (https://www.cdnfonts.com/minecrafter-alt.font)
+-[Background]:(https://wallpapercave.com/w/wp2586777)
+-[Reference for Memory Game](https://www.taniarascia.com/how-to-create-a-memory-game-super-mario-with-plain-javascript/)
+
