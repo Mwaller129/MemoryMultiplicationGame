@@ -6,7 +6,8 @@
 
 body {
     align-items: center;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Minecrafter Alt', sans-serif;
+    font-family: 'Minecrafter', sans-serif;                 
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -14,6 +15,8 @@ body {
     margin: 0px, 0px, 0px, 0px;
     background-image: url(imgs/1.png);
     background-size: cover;
+    font-size: x-large;
+
    
 }
 
